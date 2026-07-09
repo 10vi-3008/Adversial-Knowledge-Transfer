@@ -112,46 +112,6 @@ Results saved to `result_models/eval_aa_results.json`.
 
 ---
 
-## Results
-
-### Phase 1 — Pretrained Teacher Accuracies (CIFAR-100)
-
-| Model | Clean Accuracy | AutoAttack (AA) Robust Accuracy |
-|---|---|---|
-| ResNet-18 | 56.49% | 18.90% |
-| WideResNet-28-10 | 60.26% | 22.72% |
-| ViT-S | 28.70% | 11.76% |
-| ViT-B | 31.68% | 12.27% |
-| ViT-L | 22.62% | ~11.33% |
-
-> Note: ViTs show lower accuracy on CIFAR-100 (32×32) as they are designed for larger images (224×224).
-
-### Phase 2 — ARD+IGDM Distillation Results (AutoAttack Robust Accuracy)
-
-**ViT Teacher → CNN Student:**
-
-| Teacher | Student | AA Robust Accuracy |
-|---|---|---|
-| ViT-S | ResNet-18 | 8.12% |
-| ViT-S | WideResNet-28-10 | 8.19% |
-| ViT-B | ResNet-18 | 8.27% |
-| ViT-B | WideResNet-28-10 | 8.42% |
-| ViT-L | ResNet-18 | 8.29% |
-| ViT-L | WideResNet-28-10 | **8.60%** |
-
-**CNN Teacher → ViT Student:**
-
-| Teacher | Student | AA Robust Accuracy |
-|---|---|---|
-| ResNet-18 | ViT-S | 0.62% |
-| ResNet-18 | ViT-B | 0.90% |
-| ResNet-18 | ViT-L | 0.41% |
-| WRN-28-10 | ViT-S | 3.12% |
-| WRN-28-10 | ViT-B | 3.56% |
-| WRN-28-10 | ViT-L | 3.13% |
-
----
-
 ## Key Findings
 
 1. **ViT → CNN distillation works better than CNN → ViT** (8%+ vs 0.4–3.6% robust accuracy)
@@ -163,15 +123,6 @@ Results saved to `result_models/eval_aa_results.json`.
 4. **ViT students are significantly harder to make robust via distillation** than CNN students — likely due to ViT's patch-based attention mechanism being less suited for small 32×32 CIFAR images
 
 5. **Teacher quality is the bottleneck** — all results are bounded by the teacher's own robustness (11–22%), compared to SOTA RobustBench teachers which achieve 28–30%+ on CIFAR-100
-
----
-
-## Based On
-
-This project builds on:
-- **IGDM**: *"Indirect Gradient Distillation Module for Adversarial Robustness"* (ICLR 2025)
-- **ARD**: Adversarial Robustness Distillation (Goldblum et al.)
-- **AutoAttack**: Reliable evaluation of adversarial robustness (Croce & Hein, 2020)
 
 ---
 
