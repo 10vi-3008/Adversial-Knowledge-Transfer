@@ -19,7 +19,6 @@ Standard adversarial robustness distillation methods use CNN teachers for CNN st
 IGDM/
 ├── phase1_adversarial_pretrain.py   # Phase 1: Adversarially pretrain all 5 teacher models
 ├── phase2_distillation.py           # Phase 2: ARD+IGDM distillation for all 12 combos
-├── phase2_vitl_only.py              # Helper: Run only ViT-L combos on a separate GPU
 ├── evaluate_all.py                  # Evaluate all saved checkpoints with AutoAttack
 ├── attacks.py                       # PGD, FGSM, and other attack implementations
 ├── rslad_loss.py                    # ARD/IGDM loss functions
