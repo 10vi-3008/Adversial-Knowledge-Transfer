@@ -37,7 +37,7 @@ IGDM/
 │   ├── ard_IGDM_ViT-S_WRN-28-10_*.pt
 │   ├── ... (all 12 distilled student checkpoints)
 │   ├── distillation_aa_results.json
-│   └── eval_aa_results.json         # Final corrected AutoAttack results
+│   └── eval_aa_results.json        
 ```
 
 ---
